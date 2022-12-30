@@ -2,11 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-def crawlPage(pg):
+def crawlPage(pg=1):
     url = "https://forum.gamer.com.tw/C.php?bsn=19017&snA=58772&page="+str(pg)
     response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-    return BeautifulSoup(response.text, "html.parser")
-
+    return response.text
+    
 def rm(pg):
     d = []
     each_floor = pg.find_all(class_=["c-article__content", "comment_content"])
@@ -19,17 +19,14 @@ def rm(pg):
     return d
 
 def main():
-    pg = crawlPage(1)
-    total_page = re.findall(">(\d)<", str(pg.find(class_="BH-pagebtnA")))[-1]
-    d = rm(pg)
-
-    for i in range(2, int(total_page)+1):
-        pg = crawlPage(i)
-        d += rm(pg)
-    d = set(d)
+    pg = crawlPage() + crawlPage(99999)
+    d = rm(BeautifulSoup(pg, "html.parser"))
+    d = list(set(d))
+    for idx, cnt in enumerate(d):
+        d[idx] = cnt.upper()
+        if len(cnt) == 16:
+            d[idx] = cnt[0:4] + "-" +cnt[4:8] + "-" + cnt[8:12] + "-" + cnt[12:]
     print(d)
-
-
         
     
 if __name__ == "__main__":
