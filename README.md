@@ -1,4 +1,5 @@
 # Black-Desert-Coupon-TW
+This crawler will not grab information frequently, just for easy access to coupon information, and learn to program, not for commercial purposes.
 
 ## Target
 - Extract coupon from 
