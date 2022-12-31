@@ -6,3 +6,7 @@
   2. Black Desert Official Website
 - Store coupon to database
 - Send the coupon to the discord server when it detect a new coupon
+
+## Progress
+- Extract coupon from a post of Taiwan fourm Bahmut
+- filter content and stored in a list
