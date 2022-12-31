@@ -1,5 +1,5 @@
 # Black-Desert-Coupon-TW
-This crawler will not grab information frequently, just for easy obtain the coupon information, and learn programming.
+This crawler will not grab information frequently, just for easy obtain the coupon information, and learn programming.<br>
 Not for commercial purposes.
 
 ## Target
